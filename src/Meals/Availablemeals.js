@@ -1,4 +1,5 @@
 import React from "react";
+import classes from './Availablemeals.module.css';
 
 const productsArr = [
   {
@@ -32,22 +33,28 @@ const productsArr = [
 
     imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
   },
-];
+]
 
-const Product = () => {
-    const showProduct = productsArr.map((product) => 
-    
-    title={product.title}
-    price={product.price}
-    image={product.imageUrl}
-    
-    );
-
+const AvailableProduct = () => {
+  const showProducts = productsArr.map((prod) => {
     return (
-        <section>
-           {productsArr} 
-        </section>
-    )
-}
+        <div>
+      <li>
+        <span>title={prod.title}</span>
+        <span><img src={prod.imageUrl} alt="some things here" /></span>
+        <span className={classes.image}>price={prod.price}</span>
+        <button>Add to cart</button>
+        
+      </li>
+      </div>
+    );
+  });
 
-export default Product;
+  return (
+    <section className={classes.box}>
+      {showProducts}
+    </section>
+  );
+};
+
+export default AvailableProduct;
